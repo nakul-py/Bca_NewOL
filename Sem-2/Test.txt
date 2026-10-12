@@ -1,0 +1,6 @@
+Apple is red
+Banana is yellow
+Grapes are green
+Mango is sweet
+Orange is sour
+Pineapple is tropical

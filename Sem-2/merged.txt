@@ -1,0 +1,9 @@
+Write 10 lines
+of text to this file.
+This is line 1.
+Apple is red
+Banana is yellow
+Grapes are green
+Mango is sweet
+Orange is sour
+Pineapple is tropical
