@@ -1,0 +1,87 @@
+// Question 8-  Write a program in C language to create a linked list and implement deletion of an element using pointers.
+//              Write separate programs for singly linked lists.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node
+{
+    int data;
+    struct Node *next;
+};
+
+int main(void)
+{
+    struct Node *head = NULL, *temp, *newNode;
+    int n, value, i;
+
+    printf("Enter number of nodes: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++)
+    {
+        newNode = malloc(sizeof(struct Node));
+        if (newNode == NULL)
+            return 1;
+
+        printf("Enter value: ");
+        scanf("%d", &newNode->data);
+        newNode->next = NULL;
+
+        if (head == NULL)
+        {
+            head = newNode;
+        }
+        else
+        {
+            temp = head;
+            while (temp->next != NULL)
+                temp = temp->next;
+            temp->next = newNode;
+        }
+    }
+
+    printf("Enter value to delete: ");
+    scanf("%d", &value);
+
+    temp = head;
+    struct Node *prev = NULL;
+
+    while (temp != NULL && temp->data != value)
+    {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    if (temp == NULL)
+    {
+        printf("Element not found\n");
+    }
+    else
+    {
+        if (prev == NULL)
+            head = temp->next;
+        else
+            prev->next = temp->next;
+
+        free(temp);
+    }
+
+    printf("List: ");
+    temp = head;
+    while (temp != NULL)
+    {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    }
+    printf("\n");
+
+    while (head != NULL)
+    {
+        temp = head;
+        head = head->next;
+        free(temp);
+    }
+
+    return 0;
+}
